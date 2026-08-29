@@ -17,7 +17,7 @@ def system_equations(t, state, m, q, B0, omega):
     
     return [vx, vy, dvx_dt, dvy_dt]
 
-def solve_system(m, q, B0, omega, r0, t_span=(0, 10), num_points=5000):
+def solve_system(m, q, B0, omega, r0, t_span=(0, 20), num_points=10000):
     """求解微分方程组"""
     initial_state = [r0, 0.0, 0.0, 0.0]  # [x0, y0, vx0, vy0]
     t_eval = np.linspace(t_span[0], t_span[1], num_points)
@@ -36,11 +36,11 @@ def solve_system(m, q, B0, omega, r0, t_span=(0, 10), num_points=5000):
     return solution
 
 # 参数设置
-m = 1.0      # 质量
-q = 1.0      # 电荷
-B0 = 1000    # 磁场强度
-omega = 2.0  # 角频率
-r0 = 0.01     # 初始位置
+m = 1.673e-27      # 质量
+q = 1.602e-19      # 电荷
+B0 = 2             # 磁场强度
+omega = 2.0        # 角频率
+r0 = 0.01          # 初始位置
 
 # 求解
 solution = solve_system(m, q, B0, omega, r0)
@@ -62,7 +62,7 @@ ax1.set_xlabel('Time t', fontsize=12)
 ax1.set_ylabel(r'$\sqrt{(dx/dt)^2 + (dy/dt)^2}$', fontsize=14)
 ax1.set_title('Speed vs Time', fontsize=14)
 ax1.grid(True, alpha=0.3)
-ax1.set_xlim(0, 10)
+ax1.set_xlim(0, 20)
 
 # 右图：粒子轨迹图
 ax2.plot(x, y, 'r-', linewidth=1.5)
