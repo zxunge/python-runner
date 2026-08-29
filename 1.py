@@ -29,8 +29,9 @@ def solve_system(m, q, B0, omega, r0, t_span=(0, 20), num_points=10000):
         args=(m, q, B0, omega),
         method='RK45',
         t_eval=t_eval,
-        rtol=1e-8,
-        atol=1e-10
+        rtol=1e-14,
+        atol=1e-30,
+        max_step=0.01
     )
     
     return solution
