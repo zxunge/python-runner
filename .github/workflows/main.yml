@@ -14,7 +14,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
-          python-version: 'graalpy-25.3'
+          python-version: 'graalpy-25.0'
  
       - name: Install dependencies
         run: |
